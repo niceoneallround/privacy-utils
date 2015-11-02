@@ -1,0 +1,38 @@
+{
+  "name": "privacy-utils",
+  "version": "1.0.1",
+  "description": "Contains privacy utils used within and across services",
+  "main": "none",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niceoneallround/privacy-utils.git"
+  },
+  "keywords": [
+    "jsonld"
+  ],
+  "author": "rich@webshield.io",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niceoneallround/privacy-utils/issues"
+  },
+  "homepage": "https://github.com/niceoneallround/privacy-utils#readme",
+  "engine": "node 0.12.x",
+  "devDependencies": {
+    "grunt": "0.x.x",
+    "grunt-buddyjs": "^0.1.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-jscs": "^0.8.0",
+    "grunt-mocha-test": "0.x.x",
+    "grunt-shell": "^1.1.2",
+    "mocha": "1.x.x",
+    "should": "^7.1.0"
+  },
+  "dependencies": {
+    "data-models": "git://github.com/niceoneallround/data-models.git",
+    "jsonld-utils": "git://github.com/niceoneallround/jsonld-utils.git",
+    "node-uuid": "^1.4.3"
+  }
+}
