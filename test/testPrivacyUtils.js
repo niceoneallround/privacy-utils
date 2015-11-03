@@ -21,7 +21,7 @@ describe('privacy utils tests', function() {
 
       props = {};
       props.evalue = '23';
-      props.otype = 'http://myotype';
+      props.octx = 'http://myotype';
       props.tags = [PPN_TAG.OpaqueToken];
       pv = privacyUtils.createValue(props);
       assert(pv, util.format('no privacy value returned for props:%j', props));
@@ -30,7 +30,7 @@ describe('privacy utils tests', function() {
       pv.should.have.property('@type');
       assert(jsonldUtils.isType(pv, PPN_T.Obfuscated), util.format('No PPN_TAG.Obfuscated:%j', pv));
       assert(jsonldUtils.isType(pv, PPN_TAG.OpaqueToken), util.format('No PPN_TAG.OpaqueToken:%j', pv));
-      assert(jsonldUtils.isType(pv, props.otype), util.format('No props.otype:%j', pv));
+      assert(jsonldUtils.isType(pv, props.octx), util.format('No props.octx:%j', pv));
 
       assert(privacyUtils.isObfuscated(pv), util.format('value is not isObfuscted:%j', pv));
     });
@@ -40,7 +40,7 @@ describe('privacy utils tests', function() {
 
       props = {};
       props.evalue = '23';
-      props.otype = 'http://myotype';
+      props.octx = 'http://myotype';
       props.tags = PPN_TAG.OpaqueToken;
       pv = privacyUtils.createValue(props);
       assert(pv, util.format('no privacy value returned for props:%j', props));
@@ -49,7 +49,7 @@ describe('privacy utils tests', function() {
       pv.should.have.property('@type');
       assert(jsonldUtils.isType(pv, PPN_T.Obfuscated), util.format('No PPN_TAG.Obfuscated:%j', pv));
       assert(jsonldUtils.isType(pv, PPN_TAG.OpaqueToken), util.format('No PPN_TAG.OpaqueToken:%j', pv));
-      assert(jsonldUtils.isType(pv, props.otype), util.format('No props.otype:%j', pv));
+      assert(jsonldUtils.isType(pv, props.octx), util.format('No props.octx:%j', pv));
     });
 
   }); // describe 1
