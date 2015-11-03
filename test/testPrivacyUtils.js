@@ -31,6 +31,8 @@ describe('privacy utils tests', function() {
       assert(jsonldUtils.isType(pv, PPN_T.Obfuscated), util.format('No PPN_TAG.Obfuscated:%j', pv));
       assert(jsonldUtils.isType(pv, PPN_TAG.OpaqueToken), util.format('No PPN_TAG.OpaqueToken:%j', pv));
       assert(jsonldUtils.isType(pv, props.otype), util.format('No props.otype:%j', pv));
+
+      assert(privacyUtils.isObfuscated(pv), util.format('value is not isObfuscted:%j', pv));
     });
 
     it('1.2 create with all props - tags an object', function() {
