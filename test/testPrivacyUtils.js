@@ -43,7 +43,14 @@ describe('privacy utils tests', function() {
       pv.should.have.property('@type', PPN_OCTX.AETNA_POC1);
       assert(privacyUtils.isObfuscated(pv), util.format('value is not isObfuscted:%j', pv));
     });
-
   }); // describe 1
+
+  describe('2 isObfuscted tests', function() {
+
+    it('1.1 array containig an @value object no type', function() {
+      var t = [{'@value': '23'}];
+      assert(!privacyUtils.isObfuscated(t), util.format('isObfuscted did not return false%j', t));
+    });
+  }); // describe 2
 
 });
