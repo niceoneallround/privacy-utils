@@ -1,6 +1,6 @@
 {
   "name": "privacy-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Contains privacy utils used within and across services",
   "main": "none",
   "scripts": {

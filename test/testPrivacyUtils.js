@@ -45,10 +45,35 @@ describe('privacy utils tests', function() {
     });
   }); // describe 1
 
-  describe('2 isObfuscted tests', function() {
+  describe('2 isObfuscated tests', function() {
 
-    it('1.1 array containig an @value object no type', function() {
+    it('2.1 array with just a non typed @value', function() {
       var t = [{'@value': '23'}];
+      assert(!privacyUtils.isObfuscated(t), util.format('isObfuscted did not return false%j', t));
+    });
+
+    it('2.2 a non typed @value', function() {
+      var t = {'@value': '23'};
+      assert(!privacyUtils.isObfuscated(t), util.format('isObfuscted did not return false%j', t));
+    });
+
+    it('2.3 array containing an obfuscated @type and @value in expanded format - i.e an array', function() {
+      var t = [{'@type': PPN_OCTX.AETNA_POC1, '@value': '23'}];
+      assert(privacyUtils.isObfuscated(t), util.format('isObfuscted did not return false%j', t));
+    });
+
+    it('2.4 array containing an obfuscated @type and @value in compact format', function() {
+      var t = {'@type': PPN_OCTX.AETNA_POC1, '@value': '23'};
+      assert(privacyUtils.isObfuscated(t), util.format('isObfuscted did not return false%j', t));
+    });
+
+    it('2.5 array containing an obfuscated @type and @value in expanded format - i.e an array', function() {
+      var t = [{'@type': 'type1', '@value': '23'}];
+      assert(!privacyUtils.isObfuscated(t), util.format('isObfuscted did not return false%j', t));
+    });
+
+    it('2.6 array containing an NON obfuscated @type and @value in compact format', function() {
+      var t = {'@type': 'type1', '@value': '23'};
       assert(!privacyUtils.isObfuscated(t), util.format('isObfuscted did not return false%j', t));
     });
   }); // describe 2
