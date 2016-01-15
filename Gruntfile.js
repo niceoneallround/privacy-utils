@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      update1: {
+      update: {
         command: ['echo running npm update', 'npm update'].join('&&')
       }
     },
@@ -50,7 +50,10 @@ module.exports = function(grunt) {
     jscs: {
       src: ['lib', 'lib/*.js', '*.js', 'test/*.js'],
       options: {
-        preset: 'airbnb'
+        preset: 'airbnb',
+        requireSpacesInsideObjectBrackets: false,
+        disallowMultipleVarDecl: false,
+        requireTrailingComma: false,
       }
     }
 
@@ -62,14 +65,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-jscs');
 
-  grunt.registerTask('update1', ['shell:update1']);
+  grunt.registerTask('update', ['shell:update']);
   grunt.registerTask('pp', ['jshint', 'jscs', 'buddyjs']);
   grunt.registerTask('utest', ['pp', 'mochaTest:unitTest']);
   grunt.registerTask('test', ['pp', 'utest']);
 
   grunt.registerTask('buildTestCode', ['test']);
-  grunt.registerTask('release', ['update1', 'buildTestCode']);
+  grunt.registerTask('release', ['update', 'buildTestCode']);
 
-  grunt.registerTask('default', ['update1', 'buildTestCode']);
+  grunt.registerTask('default', ['update', 'buildTestCode']);
 
 };
