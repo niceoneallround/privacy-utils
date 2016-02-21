@@ -81,6 +81,6 @@ module.exports = function (grunt) {
   grunt.registerTask('buildTestCode', ['test']);
   grunt.registerTask('release', ['update', 'buildTestCode']);
 
-  grunt.registerTask('default', ['update', 'buildTestCode']);
+  grunt.registerTask('default', ['buildTestCode']);
 
 };
