@@ -14,7 +14,7 @@ describe('privacy utils tests', function () {
 
   describe('1 create privacy value tests', function () {
 
-    it('1.1 should create with an array octx', function () {
+    it('1.1 should create with an array ', function () {
       var props, pv;
 
       props = {};
@@ -77,5 +77,38 @@ describe('privacy utils tests', function () {
       assert(!privacyUtils.isObfuscated(t), util.format('isObfuscted did not return false%j', t));
     });
   }); // describe 2
+
+  describe('3 create obfuscated value tests', function () {
+
+    it('1.1 should create with an obfuscation context is an array', function () {
+      var props, pv;
+
+      props = {};
+      props.evalue = '23';
+      props.octx = [PPN_OCTX.AETNA_POC1];
+      pv = privacyUtils.createValue(props);
+      assert(pv, util.format('no privacy value returned for props:%j', props));
+
+      pv.should.have.property('@value', props.evalue);
+      pv.should.have.property('@type');
+      assert((pv['@type'].length === 1), util.format('expected type length of 1 got:%s pv is:%j', pv['@type'].length, pv));
+      pv['@type'][0].should.be.equal(PPN_OCTX.AETNA_POC1);
+      assert(privacyUtils.isObfuscated(pv), util.format('value is not isObfuscted:%j', pv));
+    });
+
+    it('1.2 create with octx and instance', function () {
+      var props, pv;
+
+      props = {};
+      props.evalue = '56';
+      props.octx = PPN_OCTX.AETNA_POC1;
+      pv = privacyUtils.createValue(props);
+      assert(pv, util.format('no privacy value returned for props:%j', props));
+
+      pv.should.have.property('@value', props.evalue);
+      pv.should.have.property('@type', PPN_OCTX.AETNA_POC1);
+      assert(privacyUtils.isObfuscated(pv), util.format('value is not isObfuscted:%j', pv));
+    });
+  }); // describe 1
 
 });
