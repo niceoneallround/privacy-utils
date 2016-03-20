@@ -1,6 +1,6 @@
 {
   "name": "privacy-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Contains privacy utils used within and across services",
   "main": "none",
   "scripts": {
@@ -19,7 +19,7 @@
     "url": "https://github.com/niceoneallround/privacy-utils/issues"
   },
   "homepage": "https://github.com/niceoneallround/privacy-utils#readme",
-  "engine": "node 5.4.x",
+  "engine": "node 5.6.x",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-buddyjs": "^0.1.0",

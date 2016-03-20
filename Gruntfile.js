@@ -28,7 +28,8 @@ module.exports = function (grunt) {
         undef: true,
         unused: true,
         eqeqeq: true,
-        strict: true
+        strict: true,
+        esnext: true
       }
     },
 
@@ -53,6 +54,7 @@ module.exports = function (grunt) {
         preset: 'airbnb',
         disallowMultipleVarDecl: false,
         requireTrailingComma: false,
+        maximumLineLength: 255
       },
       fix: {
         src: ['lib', 'lib/*.js', '*.js', 'test/*.js'],
@@ -60,6 +62,7 @@ module.exports = function (grunt) {
           preset: 'airbnb',
           disallowMultipleVarDecl: false,
           requireTrailingComma: false,
+          maximumLineLength: 255,
           fix: true
         }
       }
@@ -75,12 +78,10 @@ module.exports = function (grunt) {
 
   grunt.registerTask('update', ['shell:update']);
   grunt.registerTask('pp', ['jshint', 'jscs:src', 'buddyjs']);
-  grunt.registerTask('utest', ['pp', 'mochaTest:unitTest']);
-  grunt.registerTask('test', ['pp', 'utest']);
+  grunt.registerTask('test', ['pp', 'mochaTest:unitTest']);
 
-  grunt.registerTask('buildTestCode', ['test']);
-  grunt.registerTask('release', ['update', 'buildTestCode']);
+  grunt.registerTask('release', ['update', 'test']);
 
-  grunt.registerTask('default', ['buildTestCode']);
+  grunt.registerTask('default', ['test']);
 
 };

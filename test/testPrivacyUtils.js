@@ -14,7 +14,7 @@ describe('privacy utils tests', function () {
 
   describe('1 create privacy value tests', function () {
 
-    it('1.1 create with octx an array', function () {
+    it('1.1 should create with an array octx', function () {
       var props, pv;
 
       props = {};
