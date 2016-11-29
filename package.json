@@ -1,10 +1,11 @@
 {
   "name": "privacy-utils",
-  "version": "1.0.5",
-  "description": "Contains privacy utils used within and across services",
+  "version": "1.0.6",
+  "description": "Contains privacy utils used within and across services - NOT USED ANYMORE",
   "main": "none",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "build": "grunt test"
   },
   "repository": {
     "type": "git",
